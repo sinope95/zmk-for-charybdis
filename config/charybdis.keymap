@@ -13,6 +13,14 @@
 };
 
 / {
+behaviors {
+        scroll_encoder: scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        };
+    };
+
 
    keymap {
         compatible = "zmk,keymap";
@@ -26,7 +34,7 @@
                                 &kp LEFT_ALT  &kp SPACE  &to 1       &kp LWIN   &kp SPACE
                                               &mkp MB1   &mkp MB2    &kp ENTER
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <scroll_encoder>;
 
         };
 
