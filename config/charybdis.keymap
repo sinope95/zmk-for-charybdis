@@ -51,38 +51,128 @@
         tap-ms = <100>;
     };
 
-behaviors {       
+behaviors {
+        hm: homerow_modes {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODES";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <130>;
+            flavor = "tap-preferred";
+        };
+
+        td_num_9: td_num_9 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_NUM_9";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&kp N9>, <&kp MINUS>;
+        };
+
+        td_num_0: td_num_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_NUM_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&kp N0>, <&kp EQUAL>;
+        };
+
+        td_num_1: td_num_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_NUM_1";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&kp N1>, <&kp GRAVE>;
+        };
+
+        td_key_o: td_key_o {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_KEY_O";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&kp O>, <&kp GRAVE>;
+        };
+
+        td_key_p: td_key_p {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_KEY_P";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&kp P>, <&kp RIGHT_BRACKET>;
+        };
+
+        td_mkp1_func: td_mkp1_func {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_MKP1_FUNC";
+            #binding-cells = <0>;
+            bindings = <&mkp MB1>, <&mo 1>;
+
+            tapping-term-ms = <350>;
+        };
+
+        td_mkp2_num: td_mkp2_num {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_MKP2_NUM";
+            #binding-cells = <0>;
+            bindings = <&mkp MB2>, <&mo 2>;
+
+            tapping-term-ms = <350>;
+        };
     };
 
    
    keymap {
         compatible = "zmk,keymap";
 
-        layer_0 {
+        BASE {
             bindings = <
-&kp ESC         &kp N1  &kp N2  &kp N3        &kp N4     &kp N5      &kp N6     &kp N7     &kp N8     &kp N9            &kp N0    &kp BACKSPACE
-&kp TAB         &kp Q   &kp W   &kp E         &kp R      &kp T       &kp Y      &kp U      &kp I      &kp O             &kp P     &kp BSLH
-&kp LEFT_SHIFT  &kp A   &kp S   &kp D         &kp F      &kp G       &kp H      &kp J      &kp K      &kp L             &kp SEMI  &kp SQT
-&kp LCTRL       &kp Z   &kp X   &kp C         &kp V      &kp B       &kp N      &kp M      &kp COMMA  &kp LEFT_BRACKET  &kp FSLH  &kp MINUS
-                                &kp LEFT_ALT  &kp SPACE  &to 1       &kp LWIN   &kp SPACE
-                                              &mkp MB1   &mkp MB2    &kp ENTER
+&kp ESC    &td_num_1    &kp N2          &kp N3          &kp N4         &kp N5          &kp N6      &kp N7             &kp N8           &td_num_9        &td_num_0            &kp BACKSPACE
+&kp TAB    &kp Q        &kp W           &kp E           &kp R          &kp T           &kp Y       &kp U              &kp I            &td_key_o        &td_key_p            &kp BSLH
+&kp LGUI   &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_GUI D  &hm LSHIFT F   &kp G           &kp H       &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm L RIGHT_ALT  &hm RCTRL SEMICOLON  &kp SQT
+&kp LSHFT  &lt 3 Z      &kp X           &kp C           &kp V          &kp B           &kp N       &kp M              &kp COMMA        &kp DOT          &lt 3 SLASH          &kp RSHFT
+                                        &kp LCTRL       &kp LALT       &tog 3          &kp DELETE  &kp SPACE
+                                                        &td_mkp1_func  &td_mkp2_num    &kp ENTER
             >;
              sensor-bindings = <&scroll_vertical_encoder>,   // 编码器1：上下滚动
                              <&scroll_horizontal_encoder>;  // 编码器2：左右滚动
 
         };
 
-        layer_1 {
+        FUNC {
             bindings = <
-&kp F1          &kp F2           &kp F3           &kp F4           &kp F5           &kp F6        &kp F7     &kp F8       &kp F9          &kp F10        &kp F11   &kp F12
-&kp CAPS        &none            &none            &none            &none            &none         &none      &none        &kp UP          &none          &none     &none
-&kp LEFT_SHIFT  &none            &none            &none            &bt BT_NXT       &bt BT_CLR    &none      &kp LEFT    &kp DOWN         &kp RIGHT      &none     &none
-&kp LCTRL       &none            &none            &none            &none            &none         &none      &none       &kp PERIOD    &kp RIGHT_BRACKET  &none    &kp EQUAL
-                                                  &kp LEFT_ALT     &kp SPACE        &to 0         &none      &none
-                                                                   &mkp MB1         &mkp MB2      &kp ENTER
+&kp ESCAPE      &kp F1  &kp F2  &kp F3        &kp F4     &kp F5        &kp F6          &kp F7          &kp F8        &kp F9     &kp F10  &kp F11
+&kp CAPS        &none   &none   &none         &none      &bt BT_NXT    &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END    &none    &kp F12
+&kp LGUI        &none   &none   &none         &none      &bt BT_CLR    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none    &none
+&kp LEFT_SHIFT  &none   &none   &none         &none      &none         &none           &none           &none         &none      &none    &kp EQUAL
+                                &kp LEFT_ALT  &kp SPACE  &tog 3        &kp DELETE      &kp SPACE
+                                              &mkp MB1   &mkp MB2      &kp ENTER
             >;
 
-          
+            trackball-bindings = <&tsl>;
+        };
+
+        NUM {
+            bindings = <
+&kp ESCAPE  &trans  &trans  &trans  &trans  &trans    &trans     &trans        &kp SLASH     &kp ASTERISK  &kp MINUS   &trans
+&trans      &trans  &trans  &trans  &trans  &trans    &trans     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp PLUS    &trans
+&trans      &trans  &trans  &trans  &trans  &trans    &trans     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp PERIOD  &trans
+&trans      &trans  &trans  &trans  &trans  &trans    &trans     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER   &trans
+                            &trans  &trans  &tog 3    &kp SPACE  &kp NUMBER_0
+                                    &trans  &trans    &kp ENTER
+            >;
+        };
+
+        SCROLL {
+            bindings = <
+&kp ESCAPE  &trans      &trans      &trans      &trans  &trans    &trans  &trans      &trans      &trans      &trans  &trans
+&trans      &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &trans  &trans    &trans  &bt BT_CLR  &bt BT_NXT  &bt BT_PRV  &trans  &trans
+&trans      &trans      &trans      &trans      &trans  &trans    &trans  &mkp MB1    &mkp MB2    &mkp MB3    &none   &trans
+&trans      &trans      &trans      &trans      &trans  &trans    &trans  &trans      &trans      &trans      &trans  &trans
+                                    &trans      &trans  &tog 3    &trans  &trans
+                                                &trans  &trans    &trans
+            >;
         };
 
         /* layer_2 {
