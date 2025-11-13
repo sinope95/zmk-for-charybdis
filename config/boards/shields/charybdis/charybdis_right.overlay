@@ -5,6 +5,7 @@
  */
  
 #include "charybdis.dtsi"
+#include <input/processors.dtsi>
 
 &default_transform {
     col-offset = <6>;
@@ -34,9 +35,28 @@
 &trackball {
 	status = "okay"; //okay
 	irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-
-	/*   optional features   */
-    /*snipe-layers = <4>; */
-    scroll-layers = <3>;
-    /* automouse-layer = <4>; */
 };
+
+
+/ {
+    trackball_listener: input_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+
+        /* 평소 커서 속도 ↑ (예: 1.5배) */
+        input-processors = <&zip_xy_scaler 3 2>;
+
+        /* ✅ 스크롤 모드: _SCROLL 레이어가 켜졌을 때만 적용 */
+        scroll_mode {
+            layers = <_SCROLL>;   /* ← 여기 ‘layers’가 정식 속성명 */
+            input-processors = <&zip_xy_to_scroll_mapper
+                                &zip_scroll_scaler 3 2>;
+        };
+
+        /* (선택) 정밀 모드 */
+        snipe_mode {
+            layers = <_SNIPE>;
+            input-processors = <&zip_xy_scaler 1 3>;
+        };
+    };
+}
