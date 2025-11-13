@@ -72,7 +72,7 @@
 &kp ESC    &td_num_1    &kp N2          &kp N3          &kp N4        &kp N5      &kp N6      &kp N7             &kp N8           &td_num_9        &td_num_0            &kp BACKSPACE
 &kp TAB    &kp Q        &kp W           &kp E           &kp R         &kp T       &kp Y       &kp U              &kp I            &td_key_o        &td_key_p            &kp BSLH
 &kp LGUI   &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_GUI D  &hm LSHIFT F  &kp G       &kp H       &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm L RIGHT_ALT  &hm RCTRL SEMICOLON  &kp SQT
-&kp LSHFT  &kp Z        &kp X           &kp C           &kp V         &kp B       &kp N       &kp M              &kp COMMA        &kp DOT          &kp FSLH             &kp RSHFT
+&kp LSHFT  &lt 2 Z      &kp X           &kp C           &kp V         &kp B       &kp N       &kp M              &kp COMMA        &kp DOT          &lt 2 SLASH          &kp RSHFT
                                         &kp LCTRL       &kp LALT      &mo 0       &kp DELETE  &kp SPACE
                                                         &mkp MB1      &mkp MB2    &kp ENTER
             >;
@@ -82,11 +82,11 @@
 
         FUNC {
             bindings = <
-&kp ESCAPE      &kp F1  &kp F2  &kp F3        &kp F4     &kp F5        &kp F6     &kp F7     &kp F8      &kp F9             &kp F10  &kp F11
-&kp CAPS        &none   &none   &none         &none      &bt BT_NXT    &none      &none      &kp UP      &none              &none    &kp F12
-&kp LGUI        &none   &none   &none         &none      &bt BT_CLR    &none      &kp LEFT   &kp DOWN    &kp RIGHT          &none    &none
-&kp LEFT_SHIFT  &none   &none   &none         &none      &none         &none      &none      &kp PERIOD  &kp RIGHT_BRACKET  &none    &kp EQUAL
-                                &kp LEFT_ALT  &kp SPACE  &none         &kp LALT   &kp SPACE
+&kp ESCAPE      &kp F1  &kp F2  &kp F3        &kp F4     &kp F5        &kp F6          &kp F7          &kp F8        &kp F9             &kp F10  &kp F11
+&kp CAPS        &none   &none   &none         &none      &bt BT_NXT    &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END            &none    &kp F12
+&kp LGUI        &none   &none   &none         &none      &bt BT_CLR    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT          &none    &none
+&kp LEFT_SHIFT  &none   &none   &none         &none      &none         &none           &none           &kp PERIOD    &kp RIGHT_BRACKET  &none    &kp EQUAL
+                                &kp LEFT_ALT  &kp SPACE  &none         &kp LALT        &kp SPACE
                                               &mkp MB1   &mkp MB2      &kp ENTER
             >;
 
