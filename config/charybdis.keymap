@@ -142,7 +142,7 @@
 &trans      &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &trans  &trans    &trans  &bt BT_CLR  &bt BT_NXT  &bt BT_PRV  &trans  &trans
 &trans      &trans      &trans      &trans      &trans  &trans    &trans  &mkp MB1    &mkp MB2    &mkp MB3    &none   &trans
 &trans      &trans      &trans      &trans      &trans  &trans    &trans  &trans      &trans      &trans      &trans  &trans
-                                    &trans      &trans  &trans    &trans  &trans
+                                    &trans      &trans  &tog 3    &trans  &trans
                                                 &trans  &trans    &trans
             >;
         };
