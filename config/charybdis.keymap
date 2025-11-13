@@ -22,6 +22,46 @@
             quick-tap-ms = <130>;
             flavor = "tap-preferred";
         };
+
+        td_num_9: td_num_9 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_NUM_9";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&kp N9>, <&kp MINUS>;
+        };
+
+        td_num_0: td_num_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_NUM_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&kp N9>, <&kp EQUAL>;
+        };
+
+        td_num_1: td_num_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_NUM_1";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&kp NUMBER_1>, <&kp GRAVE>;
+        };
+
+        td_key_o: td_key_o {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_KEY_O";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&kp O>, <&kp GRAVE>;
+        };
+
+        td_key_p: td_key_p {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_KEY_P";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&kp P>, <&kp RIGHT_BRACKET>;
+        };
     };
 
     keymap {
@@ -29,23 +69,23 @@
 
         base {
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3     &kp N4    &kp N5      &kp N6      &kp N7     &kp N8     &kp N9   &kp N0    &kp BACKSPACE
-&kp TAB    &kp Q   &kp W   &kp E      &kp R     &kp T       &kp Y       &kp U      &kp I      &kp O    &kp P     &kp BSLH
-&kp LGUI   &kp A   &kp S   &kp D      &kp F     &kp G       &kp H       &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X   &kp C      &kp V     &kp B       &kp N       &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                           &kp LCTRL  &kp LALT  &mo 0       &kp DELETE  &kp SPACE
-                                      &mkp MB1  &mkp MB2    &kp ENTER
+&kp ESC    &td_num_1    &kp N2          &kp N3          &kp N4        &kp N5      &kp N6      &kp N7             &kp N8           &td_num_9        &td_num_0            &kp BACKSPACE
+&kp TAB    &kp Q        &kp W           &kp E           &kp R         &kp T       &kp Y       &kp U              &kp I            &td_key_o        &td_key_p            &kp BSLH
+&kp LGUI   &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_GUI D  &hm LSHIFT F  &kp G       &kp H       &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm L RIGHT_ALT  &hm RCTRL SEMICOLON  &kp SQT
+&kp LSHFT  &kp Z        &kp X           &kp C           &kp V         &kp B       &kp N       &kp M              &kp COMMA        &kp DOT          &kp FSLH             &kp RSHFT
+                                        &kp LCTRL       &kp LALT      &mo 0       &kp DELETE  &kp SPACE
+                                                        &mkp MB1      &mkp MB2    &kp ENTER
             >;
 
             trackball-bindings = <&tmv_coarse>;
         };
 
-        layer_1 {
+        FNC {
             bindings = <
 &kp F1          &kp F2  &kp F3  &kp F4        &kp F5     &kp F6        &kp F7     &kp F8      &kp F9      &kp F10            &kp F11  &kp F12
 &kp CAPS        &none   &none   &none         &none      &bt BT_NXT    &none      &none       &kp UP      &none              &none    &none
-&kp LEFT_SHIFT  &none   &none   &none         &none      &bt BT_CLR    &none      &kp LEFT    &kp DOWN    &kp RIGHT          &none    &none
-&kp LCTRL       &none   &none   &none         &none      &none         &none      &none       &kp PERIOD  &kp RIGHT_BRACKET  &none    &kp EQUAL
+&kp LGUI        &none   &none   &none         &none      &bt BT_CLR    &none      &kp LEFT    &kp DOWN    &kp RIGHT          &none    &none
+&kp LEFT_SHIFT  &none   &none   &none         &none      &none         &none      &none       &kp PERIOD  &kp RIGHT_BRACKET  &none    &kp EQUAL
                                 &kp LEFT_WIN  &kp SPACE  &none         &kp LALT   &kp DELETE
                                               &mkp MB1   &mkp MB2      &kp ENTER
             >;
