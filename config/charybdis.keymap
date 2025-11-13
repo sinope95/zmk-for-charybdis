@@ -67,7 +67,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        base {
+        BASE {
             bindings = <
 &kp ESC    &td_num_1    &kp N2          &kp N3          &kp N4        &kp N5      &kp N6      &kp N7             &kp N8           &td_num_9        &td_num_0            &kp BACKSPACE
 &kp TAB    &kp Q        &kp W           &kp E           &kp R         &kp T       &kp Y       &kp U              &kp I            &td_key_o        &td_key_p            &kp BSLH
@@ -80,17 +80,28 @@
             trackball-bindings = <&tmv_coarse>;
         };
 
-        FNC {
+        FUNC {
             bindings = <
-&kp F1          &kp F2  &kp F3  &kp F4        &kp F5     &kp F6        &kp F7     &kp F8      &kp F9      &kp F10            &kp F11  &kp F12
-&kp CAPS        &none   &none   &none         &none      &bt BT_NXT    &none      &none       &kp UP      &none              &none    &none
-&kp LGUI        &none   &none   &none         &none      &bt BT_CLR    &none      &kp LEFT    &kp DOWN    &kp RIGHT          &none    &none
-&kp LEFT_SHIFT  &none   &none   &none         &none      &none         &none      &none       &kp PERIOD  &kp RIGHT_BRACKET  &none    &kp EQUAL
-                                &kp LEFT_WIN  &kp SPACE  &none         &kp LALT   &kp DELETE
+&kp ESCAPE      &kp F1  &kp F2  &kp F3        &kp F4     &kp F5        &kp F6     &kp F7     &kp F8      &kp F9             &kp F10  &kp F11
+&kp CAPS        &none   &none   &none         &none      &bt BT_NXT    &none      &none      &kp UP      &none              &none    &kp F12
+&kp LGUI        &none   &none   &none         &none      &bt BT_CLR    &none      &kp LEFT   &kp DOWN    &kp RIGHT          &none    &none
+&kp LEFT_SHIFT  &none   &none   &none         &none      &none         &none      &none      &kp PERIOD  &kp RIGHT_BRACKET  &none    &kp EQUAL
+                                &kp LEFT_ALT  &kp SPACE  &none         &kp LALT   &kp SPACE
                                               &mkp MB1   &mkp MB2      &kp ENTER
             >;
 
             trackball-bindings = <&tsl>;
+        };
+
+        ADJ {
+            bindings = <
+&trans  &trans      &trans      &trans      &trans  &trans    &trans  &trans      &trans      &trans      &trans  &trans
+&trans  &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &trans  &trans    &trans  &bt BT_CLR  &bt BT_NXT  &bt BT_PRV  &trans  &trans
+&trans  &trans      &trans      &trans      &trans  &trans    &trans  &mkp MB1    &mkp MB2    &mkp MB3    &trans  &trans
+&trans  &trans      &trans      &trans      &trans  &trans    &trans  &trans      &trans      &trans      &trans  &trans
+                                &trans      &trans  &trans    &trans  &trans
+                                            &trans  &trans    &trans
+            >;
         };
 
         /* layer_2 {
