@@ -63,20 +63,6 @@
             bindings = <&kp P>, <&kp RIGHT_BRACKET>;
         };
 
-        tog_scroll_on: tog_scroll_on {
-            compatible = "zmk,behavior-toggle-layer";
-            label = "TOG_SCROLL_ON";
-            #binding-cells = <1>;
-            toggle-mode = "flip";
-        };
-
-        tog_scroll_off: tog_scroll_off {
-            compatible = "zmk,behavior-toggle-layer";
-            label = "TOG_SCROLL_OFF";
-            #binding-cells = <1>;
-            toggle-mode = "off";
-        };
-
         td_mkp1_func: td_mkp1_func {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_MKP1_FUNC";
