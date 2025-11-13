@@ -5,6 +5,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
+	//zmk,underglow = &led_strip;
     };
 
     default_transform: keymap_transform_0 {
@@ -36,25 +37,26 @@
             ;
     };
 
-	trackballs {
-		compatible = "zmk,keymap-trackballs";
-		trackballs = <&trackball>;
-	};
+ left_encoder: encoder_left {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <12>;
+        status = "disabled";
+    };
+
+    right_encoder: encoder_right {
+        compatible = "alps,ec11";
+      a-gpios = <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <1>;
+        status = "disabled";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder &right_encoder>;
+		triggers-per-rotation = <10>;
+    };
 };
-
-&spi0 {
-	compatible = "nordic,nrf-spim";
-	status = "disabled";
-
-	trackball: trackball@0 {
-		compatible = "pixart,pmw3610";
-		status = "disabled";
-		reg = <0>;
-		label = "TRACKBALL";
-		spi-max-frequency = <2000000>;
-		duplex = <2048>; // required by 3-wire spi
-	};
-};
-
-
 
