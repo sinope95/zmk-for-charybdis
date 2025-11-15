@@ -112,7 +112,7 @@
             bindings = <
 &kp ESC    &td_num_1    &kp N2          &kp N3          &kp N4        &kp N5      &kp N6      &kp N7             &kp N8           &td_num_9        &td_num_0            &kp BACKSPACE
 &kp TAB    &kp Q        &kp W           &kp E           &kp R         &kp T       &kp Y       &kp U              &kp I            &td_key_o        &td_key_p            &kp BSLH
-&kp LGUI   &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_GUI D  &hm LSHIFT F  &kp G       &kp H       &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm RIGHT_ALT K  &hm RCTRL SEMICOLON  &kp SQT
+&kp LGUI   &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_GUI D  &hm LSHIFT F  &kp G       &kp H       &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm RIGHT_ALT L  &hm RCTRL SEMICOLON  &kp SQT
 &kp LSHFT  &lt 2 Z      &kp X           &kp C           &kp V         &kp B       &kp N       &kp M              &kp COMMA        &kp DOT          &kp SLASH            &kp RSHFT
                                         &kp LCTRL       &kp LEFT_ALT  &to 1       &kp DELETE  &kp SPACE
                                                         &mkp MB1      &mkp MB2    &kp ENTER
@@ -120,7 +120,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,
+                // 编码器1：上下滚动,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
