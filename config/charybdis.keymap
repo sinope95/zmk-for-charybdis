@@ -93,7 +93,7 @@
             label = "TD_KEY_O";
             #binding-cells = <0>;
             tapping-term-ms = <350>;
-            bindings = <&kp O>, <&kp LEFT_BRACKET>;
+            bindings = <&kp O>, <&kp LBKT>;
         };
 
         td_key_p: td_key_p {
@@ -101,7 +101,7 @@
             label = "TD_KEY_P";
             #binding-cells = <0>;
             tapping-term-ms = <350>;
-            bindings = <&kp P>, <&kp RIGHT_BRACKET>;
+            bindings = <&kp P>, <&kp RBKT>;
         };
     };
 
@@ -114,13 +114,13 @@
 &kp TAB    &kp Q        &kp W           &kp E           &kp R         &kp T       &kp Y       &kp U              &kp I            &td_key_o        &td_key_p            &kp BSLH
 &kp LGUI   &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_GUI D  &hm LSHIFT F  &kp G       &kp H       &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm RIGHT_ALT K  &hm RCTRL SEMICOLON  &kp SQT
 &kp LSHFT  &lt 2 Z      &kp X           &kp C           &kp V         &kp B       &kp N       &kp M              &kp COMMA        &kp DOT          &kp SLASH            &kp RSHFT
-                                        &kp LCTRL       &kp LALT      &to 1       &kp DELETE  &kp SPACE
+                                        &kp LCTRL       &kp LEFT_ALT  &to 1       &kp DELETE  &kp SPACE
                                                         &mkp MB1      &mkp MB2    &kp ENTER
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,
+                // 编码器1：上下滚动,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
