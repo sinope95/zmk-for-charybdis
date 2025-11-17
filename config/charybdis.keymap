@@ -60,17 +60,18 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            quick-tap-ms = <180>;
             flavor = "balanced";
             hold-trigger-on-release;
             require-prior-idle-ms = <150>;
+            retro-tap;
         };
 
         td_num_9: td_num_9 {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_NUM_9";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <250>;
             bindings = <&kp N9>, <&kp MINUS>;
         };
 
@@ -78,7 +79,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_NUM_0";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <250>;
             bindings = <&kp N0>, <&kp EQUAL>;
         };
 
@@ -86,7 +87,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_NUM_1";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <250>;
             bindings = <&kp N1>, <&kp GRAVE>;
         };
 
@@ -94,7 +95,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_KEY_O";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <250>;
             bindings = <&kp O>, <&kp LBKT>;
         };
 
@@ -102,7 +103,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_KEY_P";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <250>;
             bindings = <&kp P>, <&kp RBKT>;
         };
 
@@ -121,17 +122,17 @@
 
         BASE {
             bindings = <
-&kp ESC    &td_num_1    &kp N2          &kp N3          &kp N4            &kp N5              &kp N6      &kp N7             &kp N8           &td_num_9        &td_num_0            &kp BACKSPACE
-&kp TAB    &kp Q        &kp W           &kp E           &kp R             &kp T               &kp Y       &kp U              &kp I            &td_key_o        &td_key_p            &kp BSLH
-&kp LGUI   &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_GUI D  &hm LSHIFT F      &kp G               &kp H       &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm RIGHT_ALT L  &hm RCTRL SEMICOLON  &kp SQT
-&kp LSHFT  &kp Z        &kp X           &kp C           &kp V             &kp B               &kp N       &kp M              &kp COMMA        &kp DOT          &kp SLASH            &kp RSHFT
-                                        &kp LCTRL       &kp LEFT_ALT      &mo 1               &kp DELETE  &kp SPACE
-                                                        &th_mkp_mo 3 MB1  &th_mkp_mo 2 MB2    &kp ENTER
+&kp ESC    &td_num_1    &kp N2          &kp N3          &kp N4        &kp N5              &kp N6      &kp N7             &kp N8           &td_num_9        &td_num_0            &kp BACKSPACE
+&kp TAB    &kp Q        &kp W           &kp E           &kp R         &kp T               &kp Y       &kp U              &kp I            &td_key_o        &td_key_p            &kp BSLH
+&kp LGUI   &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_GUI D  &hm LSHIFT F  &kp G               &kp H       &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm RIGHT_ALT L  &hm RCTRL SEMICOLON  &kp SQT
+&kp LSHFT  &kp Z        &kp X           &kp C           &kp V         &kp B               &kp N       &kp M              &kp COMMA        &kp DOT          &kp SLASH            &kp RSHFT
+                                        &kp LCTRL       &kp LEFT_ALT  &mo 1               &kp DELETE  &kp SPACE
+                                                        &mkp MB1      &th_mkp_mo 2 MB2    &kp ENTER
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
