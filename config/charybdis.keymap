@@ -53,6 +53,13 @@
     };
 
     behaviors {
+        /*
+            monkeytype.com에서 테스트:
+            - 60 WPM 미만: tapping-term-ms = 250
+            - 60-80 WPM: tapping-term-ms = 280
+            - 80-100 WPM: tapping-term-ms = 300
+            - 100+ WPM: tapping-term-ms = 320
+        */
         // === 기본 홈로우 모드 (중지, 약지용) ===
 
         hm: homerow_modes {
@@ -65,6 +72,9 @@
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
             flavor = "balanced";
+
+            retro-tap; // 키를 혼자 길게 누르고 뗐을 때 탭으로 인식
+            //hold-while-undecided; // 판정이 안 끝났을 때도 홀드 키를 누른 상태로 유지
         };
 
         // === 검지, 새끼 손가락용 (조금 더 관대) ===
@@ -79,6 +89,9 @@
             quick-tap-ms = <150>;
             require-prior-idle-ms = <125>;
             flavor = "balanced";
+
+            retro-tap; // 키를 혼자 길게 누르고 뗐을 때 탭으로 인식
+            //hold-while-undecided; // 판정이 안 끝났을 때도 홀드 키를 누른 상태로 유지
         };
 
         // === 고급: 반대편 손만 홀드 트리거 ===
@@ -94,10 +107,12 @@
             require-prior-idle-ms = <150>;
             flavor = "balanced";
 
+            retro-tap; // 키를 혼자 길게 누르고 뗐을 때 탭으로 인식
+            //hold-while-undecided; // 판정이 안 끝났을 때도 홀드 키를 누른 상태로 유지
+
             // 오른손 키 위치만 지정 (왼손 홈로우용)
             // 왼손 D를 누르고 오른손 J를 누르면 → GUI+J
             // 왼손 D를 누르고 왼손 F를 누르면 → "df" 입력
-
             hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 42 43 44 45 46 47 51 52 55>;
             hold-trigger-on-release;
         };
@@ -113,8 +128,10 @@
             require-prior-idle-ms = <150>;
             flavor = "balanced";
 
-            // 왼손 키 위치만 지정 (오른손 홈로우용)
+            retro-tap; // 키를 혼자 길게 누르고 뗐을 때 탭으로 인식
+            //hold-while-undecided; // 판정이 안 끝났을 때도 홀드 키를 누른 상태로 유지
 
+            // 왼손 키 위치만 지정 (오른손 홈로우용)
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 54 53>;
             hold-trigger-on-release;
         };
