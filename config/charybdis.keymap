@@ -61,12 +61,8 @@
             /* 다른 키로 방해되지 않는 한, 끝까지 Tap(문자)로 남음 */
             flavor = "tap-unless-interrupted";
 
-            /* 손 습관에 맞게 조절: 190~220ms 권장 */
-            /* 타수가 느린경우 더 길게 설정 300 ~ 350ms  */
-            tapping-term-ms = <300>;
-
-            /* 짧은 탭을 더 확실히 Tap로: 180~250ms 정도(선택) */
-            quick-tap-ms = <250>;
+            tapping-term-ms = <150>;   // 매우 짧게(150 ~ 170ms)
+            quick-tap-ms    = <230>;   // 연타 보호 폭 더 넓게
 
             /* 중요: 제거!  이 옵션이 있으면 겹쳐 누를 때 곧바로 Hold로 바뀌기 쉬움 */
             /* hold-trigger-on-release;  */
@@ -76,7 +72,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_NUM_9";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             bindings = <&kp N9>, <&kp MINUS>;
         };
 
@@ -84,7 +80,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_NUM_0";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             bindings = <&kp N0>, <&kp EQUAL>;
         };
 
@@ -92,7 +88,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_NUM_1";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             bindings = <&kp N1>, <&kp GRAVE>;
         };
 
@@ -100,7 +96,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_KEY_O";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             bindings = <&kp O>, <&kp LBKT>;
         };
 
@@ -108,7 +104,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_KEY_P";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             bindings = <&kp P>, <&kp RBKT>;
         };
 
@@ -118,7 +114,7 @@
             bindings = <&mo>, <&mkp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <350>;
+            tapping-term-ms = <300>;
         };
     };
 
