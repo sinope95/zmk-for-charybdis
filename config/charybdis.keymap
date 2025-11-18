@@ -33,7 +33,6 @@
 
 / {
     // 上下滚动编码器行为
-
     scroll_vertical_encoder: scroll_vertical_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -43,7 +42,6 @@
     };
 
     // 左右滚动编码器行为
-
     scroll_horizontal_encoder: scroll_horizontal_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -59,9 +57,18 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            flavor = "tap-preferred"; /* 방해 없으면 끝까지 탭 상태 */
-            tapping-term-ms = <200>;           /* 170~220ms 선에서 조정 */
-            quick-tap-ms = <180>;           /* 다른 키가 눌려야 홀드 확정 */
+
+            /* 다른 키로 방해되지 않는 한, 끝까지 Tap(문자)로 남음 */
+            flavor = "tap-unless-interrupted";
+
+            /* 손 습관에 맞게 조절: 190~220ms 권장 */
+            tapping-term-ms = <200>;
+
+            /* 짧은 탭을 더 확실히 Tap로: 180~220ms 정도(선택) */
+            quick-tap-ms = <200>;
+
+            /* 중요: 제거!  이 옵션이 있으면 겹쳐 누를 때 곧바로 Hold로 바뀌기 쉬움 */
+            /* hold-trigger-on-release;  */
         };
 
         td_num_9: td_num_9 {
