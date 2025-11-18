@@ -191,12 +191,12 @@
 
         BASE {
             bindings = <
-&kp ESC    &td_num_1         &kp N2               &kp N3               &kp N4             &kp N5              &kp N6      &kp N7                   &kp N8                 &td_num_9              &td_num_0                  &kp BACKSPACE
-&kp TAB    &kp Q             &kp W                &kp E                &kp R              &kp T               &kp Y       &kp U                    &kp I                  &td_key_o              &td_key_p                  &kp BSLH
-&kp LGUI   &hm_left LCTRL A  &hm_left LEFT_ALT S  &hm_left LEFT_GUI D  &hm_left LSHIFT F  &kp G               &kp H       &hm_right RIGHT_SHIFT J  &hm_right RIGHT_GUI K  &hm_right RIGHT_ALT L  &hm_right RCTRL SEMICOLON  &kp SQT
-&kp LSHFT  &kp Z             &kp X                &kp C                &kp V              &kp B               &kp N       &kp M                    &kp COMMA              &kp DOT                &kp SLASH                  &kp RSHFT
-                                                  &kp LCTRL            &kp LEFT_ALT       &mo 1               &kp DELETE  &kp SPACE
-                                                                       &mkp MB1           &th_mkp_mo 2 MB2    &kp ENTER
+&kp ESC    &td_num_1            &kp N2               &kp N3               &kp N4             &kp N5              &kp N6      &kp N7                   &kp N8                 &td_num_9              &td_num_0                  &kp BACKSPACE
+&kp TAB    &kp Q                &kp W                &kp E                &kp R              &kp T               &kp Y       &kp U                    &kp I                  &td_key_o              &td_key_p                  &kp BSLH
+&kp LGUI   &hm_outer LCTRL A    &hm_outer LEFT_ALT S &hm LEFT_GUI D       &hm LSHIFT F       &kp G               &kp H       &hm RIGHT_SHIFT J        &hm RIGHT_GUI K        &hm_outer RIGHT_ALT L  &hm_outer RCTRL SEMICOLON  &kp SQT
+&kp LSHFT  &kp Z                &kp X                &kp C                &kp V              &kp B               &kp N       &kp M                    &kp COMMA              &kp DOT                &kp SLASH                  &kp RSHFT
+                                                     &kp LCTRL            &kp LEFT_ALT       &mo 1               &kp DELETE  &kp SPACE
+                                                                          &mkp MB1           &th_mkp_mo 2 MB2    &kp ENTER
             >;
 
             sensor-bindings =
