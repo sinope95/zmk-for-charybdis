@@ -75,13 +75,30 @@
             bindings = <&kp>, <&kp>;
             #binding-cells = <2>;
 
-            /* 연타 친화: 짧게 판단, 길게 보호 */
-            tapping-term-ms = <300>;      /* 150~170에서 미세조정 */
-            quick-tap-ms    = <250>;      /* tapping-term보다 크게! 210~240 권장 */
-            require-prior-idle-ms = <200>;/* 직전 일반키 이후 180ms 내엔 무조건 Tap 확정 */
+            /* Balanced 모드 권장 설정
+               tapping-term은 Balanced에서 200~280ms 사이가 적당
+               너무 길면 특수키 발동이 답답하고, 너무 짧으면 오타 발생
+            */
+            tapping-term-ms = <280>;
 
-            flavor = "tap-unless-interrupted";
+            /* quick-tap-ms: 같은 키를 연타할 때 탭으로 인식하는 시간.
+               일반적으로 tapping-term과 같거나 작게 설정합니다 (175~200ms 권장).
+            */
+            quick-tap-ms    = <175>;
+
+            /* 빠른 타이핑 중(직전 키 입력 후 150ms 이내)에는
+               무조건 탭으로 동작하게 하여 오입력 방지
+            */
+            require-prior-idle-ms = <150>;
+
+            /*
+               balanced: 키를 누른 채 다른 키를 쳤더라도,
+               tapping-term 시간 안에 첫 번째 키를 떼면 '탭'으로 인식
+               즉, d를 누르고 k를 쳤어도 d를 빨리 떼면 dk가 입력
+            */
+            flavor = "balanced";
             retro-tap;                    /* 혼자 눌렸다가 떼지면 언제나 Tap */
+
             //hold-while-undecided; // 판정이 안 끝났을 때도 홀드 키를 누른 상태로 유지
         };
 
@@ -93,11 +110,11 @@
             bindings = <&kp>, <&kp>;
             #binding-cells = <2>;
 
-            tapping-term-ms = <280>;      /* 140~160 */
-            quick-tap-ms    = <230>;      /* 200~230 */
-            require-prior-idle-ms = <180>;
+            tapping-term-ms = <260>;      /* 검지/새끼는 조금 더 짧게 가져감 */
+            quick-tap-ms    = <175>;
+            require-prior-idle-ms = <150>;
 
-            flavor = "tap-unless-interrupted";
+            flavor = "balanced";
             retro-tap;
         };
 
