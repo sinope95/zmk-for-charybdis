@@ -53,49 +53,55 @@
     };
 
     behaviors {
+        // === 기본 홈로우 모드 (중지, 약지용) ===
+
         /*
             monkeytype.com에서 테스트:
             - 60 WPM 미만: tapping-term-ms = 250
             - 60-80 WPM: tapping-term-ms = 280
             - 80-100 WPM: tapping-term-ms = 300
             - 100+ WPM: tapping-term-ms = 320
+
+            튜닝 팁 (문제가 남으면 순서대로)
+            quick-tap-ms +10~20ms씩 증가(최대 ~250) → 연타 보호 강화
+            tapping-term-ms 5~10ms씩 하향(150 근처) → 홀드 창 축소
+            require-prior-idle-ms 10~20ms씩 증가(190~200) → 롤링 직후 Tap 강제
+            (지원 시) hold-trigger-key-positions에 엄지 위치만 등록 → 홈로우끼리 겹쳐도 홀드 금지
         */
-        // === 기본 홈로우 모드 (중지, 약지용) ===
 
         hm: homerow_modes {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODES";
             bindings = <&kp>, <&kp>;
-
             #binding-cells = <2>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            flavor = "tap-unless-interrupted";
 
-            retro-tap; // 키를 혼자 길게 누르고 뗐을 때 탭으로 인식
+            /* 연타 친화: 짧게 판단, 길게 보호 */
+            tapping-term-ms = <160>;      /* 150~170에서 미세조정 */
+            quick-tap-ms    = <230>;      /* tapping-term보다 크게! 210~240 권장 */
+            require-prior-idle-ms = <180>;/* 직전 일반키 이후 180ms 내엔 무조건 Tap 확정 */
+
+            flavor = "tap-unless-interrupted";
+            retro-tap;                    /* 혼자 눌렸다가 떼지면 언제나 Tap */
             //hold-while-undecided; // 판정이 안 끝났을 때도 홀드 키를 누른 상태로 유지
         };
 
-        // === 검지, 새끼 손가락용 (조금 더 관대) ===
 
+        // === 검지, 새끼 손가락용 (조금 더 관대) ===
         hm_outer: homerow_outer {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_OUTER";
             bindings = <&kp>, <&kp>;
-
             #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <125>;
-            flavor = "tap-unless-interrupted";
 
-            retro-tap; // 키를 혼자 길게 누르고 뗐을 때 탭으로 인식
-            //hold-while-undecided; // 판정이 안 끝났을 때도 홀드 키를 누른 상태로 유지
+            tapping-term-ms = <150>;      /* 140~160 */
+            quick-tap-ms    = <220>;      /* 200~230 */
+            require-prior-idle-ms = <160>;
+
+            flavor = "tap-unless-interrupted";
+            retro-tap;
         };
 
         // === 고급: 반대편 손만 홀드 트리거 ===
-
         hm_left: homerow_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_LEFT";
