@@ -5,7 +5,6 @@
  */
  
 #include "charybdis.dtsi"
-#include "charybdis_layouts.dtsi"
 
 &default_transform {
     col-offset = <6>;
