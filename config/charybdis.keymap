@@ -233,7 +233,6 @@
             tapping-term-ms = <300>;
         };
     };
-    dkdk
 
     keymap {
         compatible = "zmk,keymap";
