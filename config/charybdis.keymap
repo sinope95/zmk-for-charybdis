@@ -82,7 +82,7 @@
             flavor = "tap-unless-interrupted"; // 다른 키 누르기 전까지 탭
             retro-tap; // 혼자 길게 눌렀다 떼면 탭
 
-            hold-while-undecided; // 키를 뗄 때 홀드 판정
+            //hold-while-undecided; // 키를 뗄 때 홀드 판정
         };
 
 
@@ -100,7 +100,7 @@
             flavor = "tap-unless-interrupted"; // 다른 키 누르기 전까지 탭
             retro-tap; // 혼자 길게 눌렀다 떼면 탭
 
-            hold-while-undecided; // 키를 뗄 때 홀드 판정
+            //hold-while-undecided; // 키를 뗄 때 홀드 판정
         };
 
         // === Vim 방향키용 특수 설정 (J, K, L) ===
@@ -117,7 +117,7 @@
 
             flavor = "tap-unless-interrupted";
             retro-tap;                         // 길게 누르면 반복 입력
-            hold-trigger-on-release;
+            //hold-trigger-on-release;
         };
 
         // === 왼손 홈로우 전용(반대편만 트리거) ===
@@ -144,7 +144,7 @@
                 // 엄지
                 51 52 53 54 55
             >;
-            hold-trigger-on-release;
+            //hold-trigger-on-release;
         };
 
         // === 오른손 홈로우 전용(반대편만 트리거) ===
@@ -171,7 +171,7 @@
                 // 엄지
                 48 49 50
             >;
-            hold-trigger-on-release;
+            //hold-trigger-on-release;
         };
 
         td_num_9: td_num_9 {
