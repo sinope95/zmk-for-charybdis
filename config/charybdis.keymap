@@ -247,7 +247,7 @@
               &hm_right RCTRL SEMICOLON     // ;: 오른손 전용 (왼손만 트리거)
               &kp SQT
 // ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼──────────┼───────────┤
-    &kp LSHFT  &kp Z      &kp X     &kp C     &kp V     &kp B         &kp N     &kp M    &kp COMMA  &kp DOT  &lt 3 SLASH &kp RSHFT
+    &kp LSHFT  &kp Z      &kp X     &kp C     &kp V     &kp B         &kp N     &kp M    &kp COMMA  &kp DOT  &kp SLASH &kp RSHFT
 //                                 ┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┐
                                    &kp LCTRL &kp LALT  &tog 3        &kp DELETE &kp SPACE
 //                                           ├─────────┼─────────┤   ├─────────┤
