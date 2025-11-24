@@ -6,8 +6,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000 // 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 12   // 10
+// 기본 이동 속도 (기본값: 600)
+// 듀얼 모니터: 화면 전체를 빠르게 이동하려면 높게 설정
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200
+
+// 스크롤 속도 (기본값: 10)
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 30
 
 &lt {
     tapping-term-ms = <200>;
@@ -19,21 +23,39 @@
 
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
-&msc {
-    acceleration-exponent = <0>;      // 0
-    time-to-max-speed-ms = <100>;       // 300
-    delay-ms = <0>;                   // 0
-};
-
+// ========================================
+// 마우스 이동 가속도 설정
+// ========================================
 &mmv {
+    // 가속도 지수 (기본: 1)
+    // 0 = 일정 속도, 1 = 선형, 2 = 제곱 가속
+    // 듀얼 모니터: 1~2 권장 (빠른 이동 + 정밀 제어)
+    acceleration-exponent = <2>;
+
+    // 최대 속도 도달 시간 (기본: 300ms)
+    // 짧을수록 빨리 가속됨
+    // 듀얼 모니터: 200~400ms 권장
     time-to-max-speed-ms = <300>;
-    acceleration-exponent = <1>;
+
+    // 초기 지연 (기본: 0ms)
+    delay-ms = <0>;
+
     trigger-period-ms = <16>;
 };
 
-/ {
-    // 上下滚动编码器行为
+// ========================================
+// 스크롤 설정
+// ========================================
+&msc {
+    // 스크롤은 가속 없이 일정하게
+    acceleration-exponent = <0>;
+    time-to-max-speed-ms = <300>;
+    delay-ms = <0>;
+};
 
+
+/ {
+    // 세로 스크롤 인코더
     scroll_vertical_encoder: scroll_vertical_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -42,8 +64,7 @@
         tap-ms = <100>;
     };
 
-    // 左右滚动编码器行为
-
+    // 가로 스크롤 인코더
     scroll_horizontal_encoder: scroll_horizontal_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -181,7 +202,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_NUM_9";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp N9>, <&kp MINUS>;
         };
 
@@ -189,7 +210,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_NUM_0";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp N0>, <&kp EQUAL>;
         };
 
@@ -197,7 +218,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_NUM_1";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp N1>, <&kp GRAVE>;
         };
 
@@ -205,7 +226,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_KEY_O";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp O>, <&kp LBKT>;
         };
 
@@ -213,7 +234,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_KEY_P";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&kp P>, <&kp RBKT>;
         };
 
@@ -241,11 +262,10 @@
             >;
 
             sensor-bindings =
+                // 인코더1: 위아래 스크롤
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,
+                // 인코더2: 좌우 스크롤
                 <&scroll_horizontal_encoder>;
-
-            // 编码器2：左右滚动
         };
 
         FUNC {
