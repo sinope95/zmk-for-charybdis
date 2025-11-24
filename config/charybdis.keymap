@@ -54,7 +54,6 @@
 
     behaviors {
         // === 기본 홈로우 모드 (중지, 약지용) ===
-
         /*
             monkeytype.com에서 테스트:
             - 60 WPM 미만: tapping-term-ms = 250
@@ -69,54 +68,50 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODES";
             bindings = <&kp>, <&kp>;
+
             #binding-cells = <2>;
-
             tapping-term-ms = <280>; // 홀드/탭 판정 시간
-            quick-tap-ms    = <250>; // 같은 키 연타 시 탭으로 인식하는 최대 시간,  빠른 타이핑 보호
+            quick-tap-ms = <250>; // 같은 키 연타 시 탭으로 인식하는 최대 시간,  빠른 타이핑 보호
             require-prior-idle-ms = <200>; // 이전 입력 후 유휴 시간이 이보다 길어야 탭 인정, 빠른 타이핑 보호
-
             /* balanced flavor를 사용해야 hold-trigger-on-release가 제대로 작동함 */
+
             flavor = "balanced"; // 다른 키 누르기 전까지 탭
             retro-tap; // 혼자 길게 눌렀다 떼면 탭
-
             hold-while-undecided; // 키를 뗄 때 홀드 판정
         };
 
-
         // === 검지, 새끼 손가락용 (조금 더 관대) ===
+
         hm_outer: homerow_outer {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_OUTER";
             bindings = <&kp>, <&kp>;
+
             #binding-cells = <2>;
-
             tapping-term-ms = <250>;
-            quick-tap-ms    = <230>;
+            quick-tap-ms = <230>;
             require-prior-idle-ms = <180>;
-
             flavor = "balanced"; // 다른 키 누르기 전까지 탭
             retro-tap; // 혼자 길게 눌렀다 떼면 탭
-
             hold-while-undecided; // 키를 뗄 때 홀드 판정
         };
 
         // === 왼손 홈로우 전용(반대편만 트리거) ===
+
         hm_left: homerow_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_LEFT";
             bindings = <&kp>, <&kp>;
+
             #binding-cells = <2>;
-
             flavor = "balanced";
-
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
-
             retro-tap; // 키를 혼자 길게 누르고 뗐을 때 탭으로 인식
             //hold-while-undecided; // 판정이 안 끝났을 때도 홀드 키를 누른 상태로 유지
-
             // 오른손 키 위치만 지정 (왼손 홈로우용)
+
             hold-trigger-key-positions = <
                 6 7 8 9 10 11          // 오른손 숫자행
                 18 19 20 21 22 23      // 오른손 상단행
@@ -129,22 +124,21 @@
         };
 
         // === 오른손 홈로우 전용(반대편만 트리거) ===
+
         hm_right: homerow_right {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_RIGHT";
             bindings = <&kp>, <&kp>;
+
             #binding-cells = <2>;
-
             flavor = "balanced";
-
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
-
             retro-tap; // 키를 혼자 길게 누르고 뗐을 때 탭으로 인식
             //hold-while-undecided; // 판정이 안 끝났을 때도 홀드 키를 누른 상태로 유지
-
             // 왼손 키 위치만 지정 (오른손 홈로우용)
+
             hold-trigger-key-positions = <
                 0 1 2 3 4 5            // 왼손 숫자행
                 12 13 14 15 16 17      // 왼손 상단행
@@ -157,21 +151,21 @@
         };
 
         // === Vim 방향키용 특수 설정 (J, K, L) ===
+
         hm_vim: homerow_vim {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_VIM";
             bindings = <&kp>, <&kp>;
-            #binding-cells = <2>;
 
+            #binding-cells = <2>;
             flavor = "balanced";
 
             // Vim 방향키 전용 설정
+
             tapping-term-ms = <280>;
             quick-tap-ms = <280>;                // 0으로! 연타 시 계속 반복
             require-prior-idle-ms = <150>;
-
             retro-tap;                         // 길게 누르면 반복 입력
-
             hold-trigger-key-positions = <
                 0 1 2 3 4 5            // 왼손 숫자행
                 12 13 14 15 16 17      // 왼손 상단행
@@ -182,7 +176,6 @@
 
             hold-trigger-on-release;
         };
-
 
         td_num_9: td_num_9 {
             compatible = "zmk,behavior-tap-dance";
@@ -239,35 +232,17 @@
 
         BASE {
             bindings = <
-// ┌─────────┬──────────┬─────────┬─────────┬─────────┬─────────┐   ┌─────────┬─────────┬─────────┬─────────┬──────────┬───────────┐
-    &kp ESC   &td_num_1  &kp N2    &kp N3    &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &td_num_9 &td_num_0  &kp BACKSPACE
-// ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼──────────┼───────────┤
-    &kp TAB   &kp Q      &kp W     &kp E     &kp R     &kp T         &kp Y     &kp U     &kp I     &td_key_o &td_key_p  &kp BSLH
-// ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼──────────┼───────────┤
-    &kp LGUI  &hm_left LCTRL A              // A: 왼손 전용 (오른손만 트리거)
-              &hm_left LALT S               // S: 왼손 전용
-              &hm_left LGUI D               // D: 왼손 전용, dk 연타 시 탭으로 인식!
-              &hm_left LSHIFT F             // F: 왼손 전용
-              &kp G
-
-              &kp H
-              &hm_vim RSHIFT J              // J: Vim용, 길게 누르면 반복!
-              &hm_vim RGUI K                // K: Vim용, 길게 누르면 반복!
-              &hm_vim RALT L                // L: Vim용, 길게 누르면 반복!
-              &hm_right RCTRL SEMICOLON     // ;: 오른손 전용 (왼손만 트리거)
-              &kp SQT
-// ├─────────┼──────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼──────────┼───────────┤
-    &kp LSHFT  &kp Z      &kp X     &kp C     &kp V     &kp B         &kp N     &kp M    &kp COMMA  &kp DOT  &kp SLASH &kp RSHFT
-//                                 ┌─────────┬─────────┬─────────┐   ┌─────────┬─────────┐
-                                   &kp LCTRL &kp LALT  &mo 1        &kp DELETE &kp SPACE
-//                                           ├─────────┼─────────┤   ├─────────┤
-                                              &mkp MB1  &th_mkp_mo 2 MB2  &kp ENTER
-//                                           └─────────┴─────────┘   └─────────┘
+&kp ESC    &td_num_1         &kp N2           &kp N3           &kp N4             &kp N5              &kp N6      &kp N7            &kp N8          &td_num_9       &td_num_0                  &kp BACKSPACE
+&kp TAB    &kp Q             &kp W            &kp E            &kp R              &kp T               &kp Y       &kp U             &kp I           &td_key_o       &td_key_p                  &kp BSLH
+&kp LGUI   &hm_left LCTRL A  &hm_left LALT S  &hm_left LGUI D  &hm_left LSHIFT F  &kp G               &kp H       &hm_vim RSHIFT J  &hm_vim RGUI K  &hm_vim RALT L  &hm_right RCTRL SEMICOLON  &kp SQT
+&kp LSHFT  &kp Z             &kp X            &kp C            &kp V              &kp B               &kp N       &kp M             &kp COMMA       &kp DOT         &kp SLASH                  &kp RSHFT
+                                              &kp LCTRL        &kp LALT           &mo 1               &kp DELETE  &kp SPACE
+                                                               &mkp MB1           &th_mkp_mo 2 MB2    &kp ENTER
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -292,6 +267,17 @@
 &trans      &trans  &trans  &trans  &trans  &trans    &trans     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER   &trans
                             &trans  &trans  &none     &kp SPACE  &kp NUMBER_0
                                     &trans  &trans    &kp ENTER
+            >;
+        };
+
+        SNIPE {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
+                                &trans  &trans    &trans
             >;
         };
 
@@ -349,5 +335,12 @@
         };*/
     };
 
-    conditional_layers { compatible = "zmk,conditional-layers"; };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        snipe_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
 };
