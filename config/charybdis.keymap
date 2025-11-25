@@ -8,10 +8,10 @@
 
 // 기본 이동 속도 (기본값: 600)
 // 듀얼 모니터: 화면 전체를 빠르게 이동하려면 높게 설정
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 900
 
 // 스크롤 속도 (기본값: 10)
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 45
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20`s
 
 &lt {
     tapping-term-ms = <200>;
@@ -30,7 +30,7 @@
     // 가속도 지수 (기본: 1)
     // 0 = 일정 속도, 1 = 선형, 2 = 제곱 가속
     // 듀얼 모니터: 1~2 권장 (빠른 이동 + 정밀 제어)
-    acceleration-exponent = <2>;
+    acceleration-exponent = <1>;
 
     // 최대 속도 도달 시간 (기본: 300ms)
     // 짧을수록 빨리 가속됨
@@ -40,7 +40,7 @@
     // 초기 지연 (기본: 0ms)
     delay-ms = <0>;
 
-    trigger-period-ms = <16>;
+    trigger-period-ms = <12>;
 };
 
 // ========================================
