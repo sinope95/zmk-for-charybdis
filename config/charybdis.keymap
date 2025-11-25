@@ -11,7 +11,7 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 900
 
 // 스크롤 속도 (기본값: 10)
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20`s
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20
 
 &lt {
     tapping-term-ms = <200>;
