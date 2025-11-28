@@ -198,6 +198,15 @@
             hold-trigger-on-release;
         };
 
+        //한영전환
+        td_cmd: cmd_to_caps_ime {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CMD_TO_CAPS";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LGUI>, <&kp CAPS>;  // 1회: CMD, 2회: Caps Lock
+        };
+
         td_num_9: td_num_9 {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_NUM_9";
@@ -255,7 +264,7 @@
             bindings = <
 &kp ESC    &td_num_1         &kp N2           &kp N3           &kp N4             &kp N5              &kp N6      &kp N7            &kp N8          &td_num_9       &td_num_0                  &kp BACKSPACE
 &kp TAB    &kp Q             &kp W            &kp E            &kp R              &kp T               &kp Y       &kp U             &kp I           &td_key_o       &td_key_p                  &kp BSLH
-&kp LGUI   &hm_left LCTRL A  &hm_left LALT S  &hm_left LGUI D  &hm_left LSHIFT F  &kp G               &kp H       &hm_vim RSHIFT J  &hm_vim RGUI K  &hm_vim RALT L  &hm_right RCTRL SEMICOLON  &kp SQT
+&td_cmd    &hm_left LCTRL A  &hm_left LALT S  &hm_left LGUI D  &hm_left LSHIFT F  &kp G               &kp H       &hm_vim RSHIFT J  &hm_vim RGUI K  &hm_vim RALT L  &hm_right RCTRL SEMICOLON  &kp SQT
 &kp LSHFT  &kp Z             &kp X            &kp C            &kp V              &kp B               &kp N       &kp M             &kp COMMA       &kp DOT         &kp SLASH                  &kp RSHFT
                                               &kp LCTRL        &kp LALT           &mo 1               &kp DELETE  &kp SPACE
                                                                &mkp MB1           &th_mkp_mo 2 MB2    &kp ENTER
