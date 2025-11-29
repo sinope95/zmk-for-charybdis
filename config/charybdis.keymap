@@ -8,9 +8,11 @@
 
 // 기본 이동 속도 (기본값: 600)
 // 듀얼 모니터: 화면 전체를 빠르게 이동하려면 높게 설정
+
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000
 
 // 스크롤 속도 (기본값: 10)
+
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 12
 
 &lt {
@@ -26,36 +28,41 @@
 // ========================================
 // 마우스 이동 가속도 설정
 // ========================================
+
 &mmv {
     // 가속도 지수 (기본: 1)
     // 0 = 일정 속도, 1 = 선형, 2 = 제곱 가속
     // 듀얼 모니터: 1~2 권장 (빠른 이동 + 정밀 제어)
+
     acceleration-exponent = <1>;
 
     // 최대 속도 도달 시간 (기본: 300ms)
     // 짧을수록 빨리 가속됨
     // 듀얼 모니터: 200~400ms 권장
+
     time-to-max-speed-ms = <300>;
 
     // 초기 지연 (기본: 0ms)
-    delay-ms = <0>;
 
+    delay-ms = <0>;
     trigger-period-ms = <12>;
 };
 
 // ========================================
 // 스크롤 설정
 // ========================================
+
 &msc {
     // 스크롤은 가속 없이 일정하게
+
     acceleration-exponent = <0>;
     time-to-max-speed-ms = <300>;
     delay-ms = <0>;
 };
 
-
 / {
     // 세로 스크롤 인코더
+
     scroll_vertical_encoder: scroll_vertical_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -65,6 +72,7 @@
     };
 
     // 가로 스크롤 인코더
+
     scroll_horizontal_encoder: scroll_horizontal_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -197,12 +205,14 @@
         };
 
         //한영전환
+
         td_cmd: cmd_to_caps_ime {
             compatible = "zmk,behavior-tap-dance";
             label = "CMD_TO_CAPS";
             #binding-cells = <0>;
             tapping-term-ms = <230>;
-            bindings = <&kp LGUI>, <&kp CAPS>;  // 1회: CMD, 2회: Caps Lock
+            bindings = <&kp LGUI>, <&kp CAPS>;
+  // 1회: CMD, 2회: Caps Lock
         };
 
         td_num_9: td_num_9 {
@@ -260,18 +270,18 @@
 
         BASE {
             bindings = <
-&kp ESC    &td_num_1         &kp N2           &kp N3           &kp N4             &kp N5              &kp N6      &kp N7            &kp N8          &td_num_9       &td_num_0                  &kp BACKSPACE
-&kp TAB    &kp Q             &kp W            &kp E            &kp R              &kp T               &kp Y       &kp U             &kp I           &td_key_o       &td_key_p                  &kp BSLH
-&kp LGUI   &hm_left LCTRL A  &hm_left LALT S  &hm_left LGUI D  &hm_left LSHIFT F  &kp G               &kp H       &hm_vim RSHIFT J  &hm_vim RGUI K  &hm_vim RALT L  &hm_right RCTRL SEMICOLON  &kp SQT
-&kp LSHFT  &kp Z             &kp X            &kp C            &kp V              &kp B               &kp N       &kp M             &kp COMMA       &kp DOT         &kp SLASH                  &kp RSHFT
-                                              &kp LCTRL        &lt 2 LALT         &mo 1               &kp DELETE  &kp SPACE
-                                                               &mkp MB1           &mkp MB2            &kp ENTER
+&kp ESC    &td_num_1         &kp N2           &kp N3           &kp N4             &kp N5      &kp N6      &kp N7            &kp N8          &td_num_9       &td_num_0                  &kp BACKSPACE
+&kp TAB    &kp Q             &kp W            &kp E            &kp R              &kp T       &kp Y       &kp U             &kp I           &td_key_o       &td_key_p                  &kp BSLH
+&kp LGUI   &hm_left LCTRL A  &hm_left LALT S  &hm_left LGUI D  &hm_left LSHIFT F  &kp G       &kp H       &hm_vim RSHIFT J  &hm_vim RGUI K  &hm_vim RALT L  &hm_right RCTRL SEMICOLON  &kp SQT
+&kp LSHFT  &kp Z             &kp X            &kp C            &kp V              &kp B       &kp N       &kp M             &kp COMMA       &kp DOT         &kp SLASH                  &kp RSHFT
+                                              &lt 3 LCTRL      &lt 2 LALT         &mo 1       &kp DELETE  &kp SPACE
+                                                               &mkp MB1           &mkp MB2    &kp ENTER
             >;
 
             sensor-bindings =
-                // 인코더1: 위아래 스크롤
+                // 인코더1: 위아래 스크롤,
                 <&scroll_vertical_encoder>,
-                // 인코더2: 좌우 스크롤
+                // 인코더2: 좌우 스크롤,
                 <&scroll_horizontal_encoder>;
         };
 
@@ -362,12 +372,5 @@
         };*/
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        snipe_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
