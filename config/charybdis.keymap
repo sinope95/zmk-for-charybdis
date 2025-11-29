@@ -59,7 +59,7 @@
     scroll_vertical_encoder: scroll_vertical_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
 
         tap-ms = <100>;
     };
@@ -81,8 +81,6 @@
             - 60-80 WPM: tapping-term-ms = 280
             - 80-100 WPM: tapping-term-ms = 300
             - 100+ WPM: tapping-term-ms = 320
-
-
         */
 
         hm: homerow_modes {
@@ -266,8 +264,8 @@
 &kp TAB    &kp Q             &kp W            &kp E            &kp R              &kp T               &kp Y       &kp U             &kp I           &td_key_o       &td_key_p                  &kp BSLH
 &kp LGUI   &hm_left LCTRL A  &hm_left LALT S  &hm_left LGUI D  &hm_left LSHIFT F  &kp G               &kp H       &hm_vim RSHIFT J  &hm_vim RGUI K  &hm_vim RALT L  &hm_right RCTRL SEMICOLON  &kp SQT
 &kp LSHFT  &kp Z             &kp X            &kp C            &kp V              &kp B               &kp N       &kp M             &kp COMMA       &kp DOT         &kp SLASH                  &kp RSHFT
-                                              &kp LCTRL        &kp LALT           &mo 1               &kp DELETE  &kp SPACE
-                                                               &mkp MB1           &th_mkp_mo 2 MB2    &kp ENTER
+                                              &kp LCTRL        &lt 2 LALT         &mo 1               &kp DELETE  &kp SPACE
+                                                               &mkp MB1           &mkp MB2            &kp ENTER
             >;
 
             sensor-bindings =
