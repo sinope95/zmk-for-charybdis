@@ -59,10 +59,6 @@
         snipe-layers = <3>;
         //automouse-layer = <3>;
 
-        //ZMK가 ACTIVE인 동안 센서 항상 RUN 모드 유지
-        force-awake;
-        //RUN모드에서 4ms샘플링 강제(250Hz), 기본 8ms(125Hz)
-        force-awake-4ms-mode;
     };
 };
 
