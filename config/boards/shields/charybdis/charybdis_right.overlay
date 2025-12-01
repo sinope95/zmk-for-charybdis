@@ -73,13 +73,13 @@
         // 기본 레이어 (BASE, FUNC, NUM) - 일반 속도
         // 듀얼 모니터: 1.25배 빠르게 (multiplier 5, divisor 4)
         // 커서가 가볍다면: 3 2(1.5x), 너무 빠르다면: 6 5(1.2x)
-        input-processors = <&zip_xy_scaler 3 2>;
+        input-processors = <&zip_xy_scaler 5 4>;
 
         // [스크롤 모드] _SCROLL 레이어가 켜진 동안만 XY→스크롤 + 1.25x
          scroll_mode {
            layers = <1>;
            input-processors = <&zip_xy_to_scroll_mapper
-                               &zip_scroll_scaler 3 2>;
+                               &zip_scroll_scaler 5 4>;
          };
 
         // 정밀 모드 (SNIPE 레이어) - 느린 속도
