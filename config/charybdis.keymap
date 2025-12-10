@@ -283,8 +283,8 @@
 &kp TAB    &kp Q             &kp W            &kp E            &kp R              &kp T            &kp Y          &kp U             &kp I           &td_key_o       &td_key_p                  &kp BSLH
 &kp LGUI   &hm_left LCTRL A  &hm_left LALT S  &hm_left LGUI D  &hm_left LSHIFT F  &kp G            &kp H          &hm_vim RSHIFT J  &hm_vim RGUI K  &hm_vim RALT L  &hm_right RCTRL SEMICOLON  &td_key_enter
 &kp LSHFT  &kp Z             &kp X            &kp C            &kp V              &kp B            &kp N          &kp M             &kp COMMA       &kp DOT         &kp SLASH                  &kp RSHFT
-                                              &lt 3 LCTRL      &lt 1 LEFT_ALT     &lt 2 LG(TAB)    &kp DELETE     &kp SPACE
-                                                               &mkp MB1           &mkp MB2         &kp LG(SPACE)
+                                              &lt 3 LCTRL      &lt 1 LALT         &lt 2 RC(UP_ARROW)     &kp DELETE     &kp SPACE
+                                                               &mkp MB1           &mkp MB2         &kp RGUI
             >;
 
             sensor-bindings =
