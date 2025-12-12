@@ -79,7 +79,7 @@
          scroll_mode {
            layers = <1>;
            input-processors = <&zip_xy_to_scroll_mapper
-                               &zip_scroll_scaler 1 1>;
+                               &zip_scroll_scaler 2 1>;
          };
 
         // 정밀 모드 (SNIPE 레이어) - 느린 속도
