@@ -284,13 +284,13 @@
 &kp LGUI   &hm_left LCTRL A  &hm_left LALT S  &hm_left LGUI D  &hm_left LSHIFT F  &kp G            &kp H         &hm_vim RSHIFT J  &hm_vim RGUI K  &hm_vim RALT L  &hm_right RCTRL SEMICOLON  &td_key_enter
 &kp LSHFT  &kp Z             &kp X            &kp C            &kp V              &kp B            &kp N         &kp M             &kp COMMA       &kp DOT         &kp SLASH                  &kp RSHFT
                                               &lt 3 LCTRL      &lt 1 LALT         &lt 2 LA(TAB)    &lt 1 DELETE  &kp SPACE
-                                                               &mkp MB1           &mkp MB2         &kp LC(TAB)
+                                                               &mkp MB1           &mkp MB2         &mo 1
             >;
 
             sensor-bindings =
-                // 인코더1: 위아래 스크롤,,,,,,,,,
+                // 인코더1: 위아래 스크롤,,,,,,,,,,
                 <&scroll_vertical_encoder>,
-                // 인코더2: 좌우 스크롤,,,,,,,,,
+                // 인코더2: 좌우 스크롤,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
         };
 
